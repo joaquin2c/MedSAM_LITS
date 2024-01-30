@@ -1,5 +1,5 @@
 # MedSAM
-This is the modify repository for MedSAM: Segment Anything in Medical Images. 
+This is the modified repository for MedSAM: Segment Anything in Medical Images. 
 
 
 ## Installation

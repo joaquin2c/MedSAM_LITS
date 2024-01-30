@@ -9,7 +9,7 @@ This is the modified repository for MedSAM: Segment Anything in Medical Images.
 4. run `pip install albumentations`
 
 
-#Dataset
+## Dataset
 The images and masks must be save in this way:
 -Dataset
 --images

@@ -12,8 +12,11 @@ This is the modified repository for MedSAM: Segment Anything in Medical Images.
 ## Dataset
 The images and masks must be save in this way:
 Dataset/
+
 ├── images
+
 ├── masks
+
     ├── 0
 
 

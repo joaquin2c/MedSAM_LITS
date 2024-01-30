@@ -5,8 +5,9 @@ This is the modified repository for MedSAM: Segment Anything in Medical Images.
 ## Installation
 1. Create a virtual environment `conda create -n medsam python=3.10 -y` and activate it `conda activate medsam`
 2. Install [Pytorch 2.0](https://pytorch.org/get-started/locally/)
-3. run `pip install -e .`
-4. run `pip install albumentations`
+3. 
+4. Enter the MedSAM folder and run `pip install -e .`
+5. Run `pip install albumentations`
 
 
 ## Dataset

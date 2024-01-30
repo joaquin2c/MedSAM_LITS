@@ -15,7 +15,7 @@ The images and masks must be save in this way:
     Dataset/
     ├── images
     ├── masks
-        ├── 0
+    ├── ├── 0
 
 Only the "masks" folder have to contain the data inside the folder "0"
 

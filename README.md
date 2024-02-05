@@ -23,8 +23,11 @@ Only the "masks" folder have to contain the data inside the folder "0"
 ## Checkpoint
 Download the [model checkpoint](https://drive.google.com/file/d/1SXpC9adkh9Wzjn0F7IoMKqq_eUc57U4Z/view?usp=sharing)
 
+## Inference
+In the *medsam_inference.ipynb* notebook you can test with a single image.  
+
 ## Validation of model
-Use the command line to get the results of the model for the data:
+Use the command line to get the results of the model for multiple data:
 ```bash
 python val_MedSAM_WPM.py --path DATASET_FOLDER_PATH--out_path RESULTS_FOLDER_PATH --check_path CHECKPOINT_PATH--name EXPERIMENT_NAME
 ```

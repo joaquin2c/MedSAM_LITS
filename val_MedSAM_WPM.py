@@ -31,6 +31,7 @@ def parse_args():
     parser.add_argument('--num_classes', default=1,help='classes')
     parser.add_argument('--input_channels', default=1,help='input channels')
     parser.add_argument('--name', default="MedSAM",help='experiment name')
+    parser.add_argument('--device', default="cuda:0",help='device')
     args = parser.parse_args()
 
     return args
@@ -135,14 +136,14 @@ class MedSAM(nn.Module):
 
 def model_MedSAM(args):
     model_type="vit_b"
-    checkpoint="SAM/sam_vit_b_01ec64.pth"
+    checkpoint="work_dir/SAM/sam_vit_b_01ec64.pth"
     sam_model = sam_model_registry[model_type](checkpoint=checkpoint,img_size=512,in_chans=args.input_channels)
     medsam_model = MedSAM(
         image_encoder=sam_model.image_encoder,
         mask_decoder=sam_model.mask_decoder,
-    ).cuda()
+    ).to(args.device)
     print("Loading weights")
-    medsam_model.load_state_dict(torch.load(args.check_path,map_location='cuda:0')["model"])
+    medsam_model.load_state_dict(torch.load(args.check_path,map_location=args.device)["model"])
     return medsam_model
 
 
@@ -190,7 +191,7 @@ def main():
 
     with torch.no_grad():
         for step, (image, gt2D, name) in enumerate(tqdm(nice_val_loader)):
-            image, target = image.cuda(), gt2D.cuda()
+            image, target = image.to(args.device), gt2D.to(args.device)
             output = model(image)
             meta=name[0].split("_")
             #print(meta)
